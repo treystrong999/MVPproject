@@ -4,7 +4,8 @@ var bodyParser = require("body-parser");
 var app = express();
 var PORT = process.env.PORT || 3000;
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+//app.use(express.static("/public"));
+app.use(express.static(path.join(__dirname + '/public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect(process.env.MONGODB_URI);
 
