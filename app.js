@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(MVPproject + '/public')));
 mongoose.connect(process.env.MONGODB_URI);
 
 const itemSchema = {
