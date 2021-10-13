@@ -2,10 +2,11 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var app = express();
+var PORT = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect("mongodb://localhost:27017/todolistDB",{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect(process.env.MONGODB_URI);
 
 const itemSchema = {
   name: String,
@@ -53,6 +54,6 @@ app.post("/delete", function (req, res) {
   });
 });
 
-app.listen(3003, function () {
-  console.log("listening on port 3003");
+app.listen(PORT, function () {
+  console.log("listening on port ${3000}");
 });
