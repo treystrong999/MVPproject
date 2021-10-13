@@ -1,6 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+const path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 app.set("view engine", "ejs");
